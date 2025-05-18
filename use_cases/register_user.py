@@ -15,7 +15,9 @@ class RegisterUserUseCase:
             raise ValueError("User already exists")
 
         hashed_password = self.hasher.hash(password=password)
-        user = User(Username=username, password=hashed_password, email=email)
+        user = User(username=username, password=hashed_password, email=email)
         self.user_repository.save(user)
+        print("Creating user with:", username, email)
+        print("Constructed user:", user)
         return {"message": "User registered successfully"}
 

@@ -1,9 +1,11 @@
 # File: domain/entities/user.py
 
-from pydantic import BaseModel
+from dataclasses import dataclass
 
-class User(BaseModel):
+@dataclass
+class User:
     username: str
     password: str
     email: str
-    
+
+
