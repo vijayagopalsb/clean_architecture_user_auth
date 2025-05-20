@@ -66,7 +66,7 @@ uvicorn frameworks.fastapi.main:app --reload
 
 Once the FastAPI server is running, we can test the user registration endpoint using either Swagger UI, cURL, or Postman.
 
-- Swagger UI
+#### Swagger UI
 
  Browser at  http://127.0.0.1:8000/docs 
 
@@ -84,7 +84,7 @@ An interactive API documentation page will show where we can test the <u>registe
 ```
 4. Click Execute to register a new user.
 
-- cURL
+#### cURL
 
 ```bash
 curl -X POST "http://127.0.0.1:8000/register" \
@@ -92,7 +92,7 @@ curl -X POST "http://127.0.0.1:8000/register" \
   -d '{"username": "vijay", "password": "securepass", "email": "vijay@example.com"}'
 ```
 
-- Postman
+#### Postman
 
 Set the method to POST
 
