@@ -18,6 +18,12 @@ The project is structured into distinct layers:
 
 This architecture ensures that inner layers remain independent of external frameworks and technologies.
 
+### Features
+
+- User registration with data validation
+- Modular Clean Architecture structure
+- In-memory user storage for simplicity
+
 ### Prerequisites
 
 - Python 3.8 or higher
@@ -134,5 +140,9 @@ if user already exists:
   "detail": "User already exists"
 }
 ```
+
+### License
+
+This project is licensed under the MIT License.
 
 
