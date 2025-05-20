@@ -115,4 +115,24 @@ Go to the Body tab:
 }
 ```
 
-Click the "Send" button. 
+Click the "Send" button.
+
+### Expected Response
+
+if successful:
+
+```bash
+{
+  "message": "User registered successfully"
+}
+```
+
+if user already exists:
+
+```bash
+{
+  "detail": "User already exists"
+}
+```
+
+
