@@ -10,14 +10,12 @@ class RegisterUserUseCase:
         self.user_repository = user_repository
         self.hasher = hasher
 
-    def execute(self, username: str, password: str, email: str):
-        if self.user_repository.get_by_username(username=username):
+    def execute(self, user: User):
+        if self.user_repository.get_by_username(username=user.username):
             raise ValueError("User already exists")
 
-        hashed_password = self.hasher.hash(password=password)
-        user = User(username=username, password=hashed_password, email=email)
+        hashed_password = self.hasher.hash(password=user.password)
+        user.password = hashed_password
         self.user_repository.save(user)
-        print("Creating user with:", username, email)
-        print("Constructed user:", user)
         return {"message": "User registered successfully"}
 
