@@ -9,7 +9,6 @@ class UserRepositoryImpl(UserRepository):
 
     def get_by_username(self, username):
         return user_db.get(username)
-    
+
     def save(self, user: User) -> None:
         user_db[user.username] = user
-        
