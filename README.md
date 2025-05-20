@@ -1,6 +1,10 @@
 ## Clean Architecture User Authentication
 
-A Python-based user authentication system designed following Clean Architecture principles. This project emphasizes separation of concerns, scalability, and testability.
+This project is a trivial implementation of Clean Architecture principles in Python with a FastAPI application. A core user authentication use case – user registration – showcases how to separate concerns across domain entities, use cases, interface adapters, and external frameworks.
+
+Consider this project as a starter or educational reference for developers looking to understand and apply Clean Architecture in real-world backend services, emphasizing testability, scalability, and independent business logic.
+
+Of course, this is a trivial implementation, but it lays all the groundwork for extending the application to include additional features like login, JWT-based authentication, persistent storage (and more), without compromising architectural boundaries.
 
 ### Architecture Overview
 
@@ -52,24 +56,63 @@ clean_architecture_user_auth/
 uvicorn frameworks.fastapi.main:app --reload
 ```
 
-### Testing
+### Usage Example
 
- ```plaintext
+Once the FastAPI server is running, we can test the user registration endpoint using either Swagger UI, cURL, or Postman.
 
- url: 127.0.0.1:8000/register
+- Swagger UI
 
- post data:
+ Browser at  http://127.0.0.1:8000/docs 
 
+An interactive API documentation page will show where we can test the <u>register</u> endpoint.
+
+1. Click on the POST /register endpoint.
+2. Click "Try it out".
+3. Enter the following JSON payload:
+```bash
 {
   "username": "vijay",
-  "password": "qwerty123",
+  "password": "securepass",
   "email": "vijay@example.com"
 }
+```
+4. Click Execute to register a new user.
 
-Response:
+- cURL
 
+```bash
+curl -X POST "http://127.0.0.1:8000/register" \
+  -H "Content-Type: application/json" \
+  -d '{"username": "vijay", "password": "securepass", "email": "vijay@example.com"}'
+```
+
+- Postman
+
+Set the method to POST
+
+Set the URL to: http://127.0.0.1:8000/register
+
+Go to the Headers tab and add:
+
+| Key          | Value            |
+| ------------ | ---------------- |
+| Content-Type | application/json |
+
+
+Go to the Body tab:
+
+- Select raw
+
+- Choose JSON as the format
+
+- Paste the following example:
+
+```bash
 {
-  "message": "User registered successfully"
+  "username": "vijay",
+  "password": "securepass",
+  "email": "vijay@example.com"
 }
+```
 
- ```
+Click the "Send" button. 
